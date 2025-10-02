@@ -1,0 +1,146 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Sixteen Clothing Products{% endblock %}
+
+{% block banner_slider %}
+<div class="page-heading products-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>new arrivals</h4>
+          <h2>sixteen products</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="filters">
+          <ul>
+              <li class="active"><a href="#all" data-toggle="tab">All Products</a></li>
+              <li><a href="#featured" data-toggle="tab">Featured</a></li>
+              <li><a href="#flash_deals" data-toggle="tab">Flash Deals</a></li>
+              <li><a href="#last_minute" data-toggle="tab">Last Minute</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-12">
+<div class="filters-content">
+  <div class="tab-content">
+    <div class="tab-pane active" id="all">
+      <div class="row grid">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-4 all des">
+          <div class="product-item">
+            <a href="{% url 'single_product' %}"><img src="{{ product.image.url }}" alt=""></a>
+            <div class="down-content">
+              <a href="{% url 'single_product' %}"><h4>{{ product.title }}</h4></a>
+              <h6>${{ product.price }}</h6>
+              <p>{{ product.description }}</p>
+              <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+              </ul>
+              <span>Reviews (24)</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tab-pane" id="featured">
+      <div class="row grid">
+        {% for product in products %}
+          {% if product.featured %}
+          <div class="col-lg-4 col-md-4 all des">
+            <div class="product-item">
+              <a href="{% url 'single_product' %}"><img src="{{ product.image.url }}" alt=""></a>
+              <div class="down-content">
+                <a href="{% url 'single_product' %}"><h4>{{ product.title }}</h4></a>
+                <h6>${{ product.price }}</h6>
+                <p>{{ product.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (24)</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tab-pane" id="flash_deals">
+      <div class="row grid">
+        {% for product in products %}
+          {% if product.flash_deals %}
+          <div class="col-lg-4 col-md-4 all des">
+            <div class="product-item">
+              <a href="{% url 'single_product' %}"><img src="{{ product.image.url }}" alt=""></a>
+              <div class="down-content">
+                <a href="{% url 'single_product' %}"><h4>{{ product.title }}</h4></a>
+                <h6>${{ product.price }}</h6>
+                <p>{{ product.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (24)</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tab-pane" id="last_minute">
+      <div class="row grid">
+        {% for product in products %}
+          {% if product.last_minute %}
+          <div class="col-lg-4 col-md-4 all des">
+            <div class="product-item">
+              <a href="{% url 'single_product' %}"><img src="{{ product.image.url }}" alt=""></a>
+              <div class="down-content">
+                <a href="{% url 'single_product' %}"><h4>{{ product.title }}</h4></a>
+                <h6>${{ product.price }}</h6>
+                <p>{{ product.description }}</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (24)</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

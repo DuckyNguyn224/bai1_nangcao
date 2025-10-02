@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+{% block main_content %}
+<div class="container mt-4" style="padding-top: 80px;">
+    <h1>{% if form.instance.pk %}Edit Team Member{% else %}Add New Team Member{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Name</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.role.id_for_label }}">Role</label>
+            {{ form.role }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image</label>
+            {{ form.image }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.facebook.id_for_label }}">Facebook</label>
+            {{ form.facebook }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.twitter.id_for_label }}">Twitter</label>
+            {{ form.twitter }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.linkedin.id_for_label }}">LinkedIn</label>
+            {{ form.linkedin }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.behance.id_for_label }}">Behance</label>
+            {{ form.behance }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'team_member_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

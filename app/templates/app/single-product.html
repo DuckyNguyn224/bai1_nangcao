@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Sixteen Clothing - Single Product{% endblock %}
+
+{% block banner_slider %}
+<div class="page-heading products-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-content">
+          <h4>single product</h4>
+          <h2>product details</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="single-product">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-image">
+          <img src="{% static 'app/images/product_01.jpg' %}" alt="">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="product-details">
+          <h2>Product Title</h2>
+          <h6>$25.75</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, doloribus eum placeat deserunt voluptates. Itaque, corrupti, veniam doloremque blanditiis dolores.</p>
+          <ul class="stars">
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+          </ul>
+          <span>Reviews (24)</span>
+          <a href="#" class="filled-button">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+
+{% block main_content %}
+<div class="container mt-4" style="padding-top: 80px;">
+    <h1>Delete Team Member</h1>
+    <p>Are you sure you want to delete the team member "{{ object.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'team_member_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

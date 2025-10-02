@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+
+{% block main_content %}
+<div class="container mt-4" style="padding-top: 80px;">
+    <h1>Team Member Management</h1>
+    <a href="{% url 'team_member_add' %}" class="btn btn-primary mb-3">Add New Team Member</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in team_members %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.role }}</td>
+                <td>Yes</td>
+                <td>
+                    <a href="{% url 'team_member_edit' member.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'team_member_delete' member.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No team members found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+
+{% block main_content %}
+<div class="container mt-4">
+    <h1>{% if form.instance.pk %}Edit Product{% else %}Add New Product{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.price.id_for_label }}">Price</label>
+            {{ form.price }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image</label>
+            {{ form.image }}
+        </div>
+        <div class="form-check">
+            {{ form.active }}
+            <label class="form-check-label" for="{{ form.active.id_for_label }}">Active</label>
+        </div>
+        <div class="form-check">
+            {{ form.featured }}
+            <label class="form-check-label" for="{{ form.featured.id_for_label }}">Featured</label>
+        </div>
+        <div class="form-check">
+            {{ form.flash_deals }}
+            <label class="form-check-label" for="{{ form.flash_deals.id_for_label }}">Flash Deals</label>
+        </div>
+        <div class="form-check">
+            {{ form.last_minute }}
+            <label class="form-check-label" for="{{ form.last_minute.id_for_label }}">Last Minute</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
